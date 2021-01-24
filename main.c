@@ -53,14 +53,6 @@ int main (void)
 	
 	LCD1602_Print("Stepper init");
 	DELAY(10)
-	Stepper_Init();
-	LCD1602_ClearAll();
-	LCD1602_Print("Systick init");
-	DELAY(10)
-	LCD1602_ClearAll();
-	LCD1602_SetCursor(0,0);
-	LCD1602_Print("TEST!");
-	DELAY(10)
 	
 	
 	while(1)
