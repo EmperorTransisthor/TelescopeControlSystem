@@ -2,7 +2,7 @@
 					Technika Mikroprocesorowa 2 - laboratorium
 					Projekt systemu sterowania teleskopem
 					autor: Michał Bogoń
-					wersja: 07.11.2020r.
+					wersja: 24.01.2021r.
 ----------------------------------------------------------------------------*/
 					
 #include <stdio.h>
