@@ -37,9 +37,10 @@ int main (void)
 {
 	char display[]={0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20};
 	
-	LCD1602_Init();		 // Inicjalizacja wyświetlacza LCD
+	// Inits, if something doesn't work, it will tell us, where error occurred
+	LCD1602_Init();
 	LCD1602_Backlight(TRUE);
-	LCD1602_Print("---");				// Ekran kontrolny - nie zniknie, jeśli dalsza część programu nie działa
+	LCD1602_Print("---");
 	DELAY(10)
 	LCD1602_SetCursor(0,0);
 	LCD1602_Print("PIT init");
