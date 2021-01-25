@@ -28,4 +28,4 @@ void Step_Dec_DirChng(void);									// Function changing direction of Declinati
 void Step_Dec_DirHigh(void);									// Function changing direction of Declination axis stepper
 void Step_Dec_DirLow(void);										// Function changing direction of Declination axis stepper
 
-#endif
+#endif  /* stepper.h */
