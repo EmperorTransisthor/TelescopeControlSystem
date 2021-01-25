@@ -13,6 +13,5 @@
 
 
 void Klaw_Init(void);
-void Klaw_beg_init(void);
 
 #endif  /* KLAW_H */
