@@ -20,23 +20,23 @@ void Klaw_Init(void)
     SIM->SCGC5 					|= SIM_SCGC5_PORTB_MASK; 
     PORTB->PCR[ROW1]  	|= PORT_PCR_MUX(1); 
     PORTB->PCR[ROW2]  	|= PORT_PCR_MUX(1); 
-		PORTB->PCR[COL1]  	|= PORT_PCR_MUX(1);
-		PORTB->PCR[COL2]  	|= PORT_PCR_MUX(1);
-		PORTB->PCR[COL3]  	|= PORT_PCR_MUX(1);
+	PORTB->PCR[COL1]  	|= PORT_PCR_MUX(1);
+	PORTB->PCR[COL2]  	|= PORT_PCR_MUX(1);
+	PORTB->PCR[COL3]  	|= PORT_PCR_MUX(1);
 
 
     PORTB->PCR[ROW1]  |= PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;  // Enable pull-up resitor on Pin 1
     PORTB->PCR[ROW2]  |= PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;
 
-		PORTB -> PCR[ROW1]  |= PORT_PCR_IRQC(0xa);
+    PORTB -> PCR[ROW1]  |= PORT_PCR_IRQC(0xa);
     PORTB -> PCR[ROW2]  |= PORT_PCR_IRQC(0xa);
 	
-		// Setting as output
-		PTB->PDDR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
-		PTB->PCOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
+	// Setting as output
+	PTB->PDDR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
+	PTB->PCOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
     
 		
-		NVIC_SetPriority(myPORTB_IRQn, 3);
+	NVIC_SetPriority(myPORTB_IRQn, 3);
 		
     NVIC_ClearPendingIRQ(PORTB_IRQn);
     NVIC_EnableIRQ(PORTB_IRQn);
@@ -59,6 +59,8 @@ void PORTB_IRQHandler(void)
 			for (int i = 0; i < 3; i++)
 			{
 				PTB->PCOR |= (1<<columns[i]);
+				
+				// Checking, if first column is LOW
 				if ((i == 0) && (PTB->PDIR & (1 << ROW1) ) == 0)
 				{
 					uint8_t dirChng = 0;
@@ -85,6 +87,7 @@ void PORTB_IRQHandler(void)
 					break;
 				}
 				
+				// Checking, if second column is LOW
 				else if((i == 1) && (PTB->PDIR & (1 << ROW1) ) == 0)
 				{
 					Step_Asc_modeChng();
@@ -95,6 +98,7 @@ void PORTB_IRQHandler(void)
 					break;
 				}
 				
+				// Checking, if third column is LOW
 				else if((i == 2) && (PTB->PDIR & (1 << ROW1) ) == 0)
 				{
 					uint8_t dirChng = 0;
@@ -137,6 +141,8 @@ void PORTB_IRQHandler(void)
 			for (int i = 0; i < 3; i++)
 			{
 				PTB->PCOR |= (1<<columns[i]);
+				
+				// Checking, if first column is LOW
 				if ((i == 0) && ((PTB->PDIR & (1 << ROW2) ) == 0))
 				{
 					Step_Dec_DirHigh();
@@ -150,6 +156,7 @@ void PORTB_IRQHandler(void)
 					break;
 				}
 				
+				// Checking, if first column is LOW
 				else if ((i == 1) && ((PTB->PDIR & (1 << ROW2) ) == 0))
 				{
 					Step_Asc_DirChng();
@@ -159,6 +166,7 @@ void PORTB_IRQHandler(void)
 					break;
 				}
 				
+				// Checking, if first column is LOW
 				else if ((i == 2) && ((PTB->PDIR & (1 << ROW2) ) == 0))
 				{
 					Step_Dec_DirLow();
