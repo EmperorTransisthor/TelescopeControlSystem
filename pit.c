@@ -36,8 +36,6 @@ void PIT_IRQHandler()
 		
 	//clear pending IRQ
 	NVIC_ClearPendingIRQ(myPIT_IRQn);
-	
-	//PTB->PTOR |=(1<<10); // debug indicator
 }
 
 
@@ -49,12 +47,12 @@ void PIT_Init(void)
 	SIM->SCGC6 |= SIM_SCGC6_PIT_MASK;
 	
 	// Enable module, freeze timers in debug mode
-	PIT->MCR &= ~PIT_MCR_MDIS_MASK;				// Włączenie modułu PIT
+	PIT->MCR &= ~PIT_MCR_MDIS_MASK;							// Włączenie modułu PIT
 	
-	PIT->CHANNEL[0].LDVAL = PIT_LDVAL_TSV(PIT_3_32sec);		// Załadowanie wartości startowej
+	PIT->CHANNEL[0].LDVAL = PIT_LDVAL_TSV(PIT_3_32sec);				// Załadowanie wartości startowej
 	PIT->CHANNEL[0].TCTRL = PIT_TCTRL_TEN_MASK | PIT_TCTRL_TIE_MASK;		// Odblokowanie przerwania i wystartowanie licznika
 	
-	PIT->CHANNEL[1].LDVAL = PIT_LDVAL_TSV(PIT_1ms);		// Załadowanie wartości startowej
+	PIT->CHANNEL[1].LDVAL = PIT_LDVAL_TSV(PIT_1ms);					// Załadowanie wartości startowej
 	PIT->CHANNEL[1].TCTRL = PIT_TCTRL_TEN_MASK | PIT_TCTRL_TIE_MASK;		// Odblokowanie przerwania i wystartowanie licznika
 	
 	NVIC_SetPriority(myPIT_IRQn, 2);
