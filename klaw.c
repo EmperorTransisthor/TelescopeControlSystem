@@ -52,7 +52,7 @@ void PORTB_IRQHandler(void)
 	
 	// Rewind in south
   if((PORTB->ISFR & (1<<ROW1)))
-	{
+  {
 		if (debouncingFinished) 
 		{
 			PTB->PDOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
