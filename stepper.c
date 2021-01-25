@@ -17,11 +17,11 @@ void Stepper_Init(void)
 	// setting pins as outputs 
 	SIM->SCGC5 					|= SIM_SCGC5_PORTA_MASK; 
 
-	PORTA->PCR[DIR_ASC] 			|= PORT_PCR_MUX(1);
+	PORTA->PCR[DIR_ASC] 				|= PORT_PCR_MUX(1);
 	PORTA->PCR[DIR_DEC]			 	|= PORT_PCR_MUX(1);
-	PORTA->PCR[M0_ASC]  			|= PORT_PCR_MUX(1);
+	PORTA->PCR[M0_ASC]  				|= PORT_PCR_MUX(1);
 	PORTA->PCR[M0_DEC] 				|= PORT_PCR_MUX(1);
-	PORTA->PCR[M1_ASC]  			|= PORT_PCR_MUX(1);
+	PORTA->PCR[M1_ASC]  				|= PORT_PCR_MUX(1);
 	PORTA->PCR[M1_DEC] 				|= PORT_PCR_MUX(1);
 	PORTA->PCR[ASC_EN]				|= PORT_PCR_MUX(1);
 	
@@ -32,7 +32,7 @@ void Stepper_Init(void)
 	
 	PORTB->PCR[STEPPER_ASC] 	|= PORT_PCR_MUX(1);
 	PORTB->PCR[STEPPER_DEC]  	|= PORT_PCR_MUX(1);
-	PORTB->PCR[DEC_EN]				|= PORT_PCR_MUX(1);
+	PORTB->PCR[DEC_EN]		|= PORT_PCR_MUX(1);
 	
 	PTB->PDDR |= (1<<STEPPER_ASC) | (1<<STEPPER_DEC) | (1<<DEC_EN);
 	PTB->PSOR |= (1<<STEPPER_ASC) | (1<<STEPPER_DEC);
