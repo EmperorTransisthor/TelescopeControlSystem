@@ -20,9 +20,9 @@ void Klaw_Init(void)
     SIM->SCGC5 					|= SIM_SCGC5_PORTB_MASK; 
     PORTB->PCR[ROW1]  	|= PORT_PCR_MUX(1); 
     PORTB->PCR[ROW2]  	|= PORT_PCR_MUX(1); 
-	PORTB->PCR[COL1]  	|= PORT_PCR_MUX(1);
-	PORTB->PCR[COL2]  	|= PORT_PCR_MUX(1);
-	PORTB->PCR[COL3]  	|= PORT_PCR_MUX(1);
+    PORTB->PCR[COL1]  	|= PORT_PCR_MUX(1);
+    PORTB->PCR[COL2]  	|= PORT_PCR_MUX(1);
+    PORTB->PCR[COL3]  	|= PORT_PCR_MUX(1);
 
 
     PORTB->PCR[ROW1]  |= PORT_PCR_PE_MASK | PORT_PCR_PS_MASK;  // Enable pull-up resitor on Pin 1
@@ -31,12 +31,12 @@ void Klaw_Init(void)
     PORTB -> PCR[ROW1]  |= PORT_PCR_IRQC(0xa);
     PORTB -> PCR[ROW2]  |= PORT_PCR_IRQC(0xa);
 	
-	// Setting as output
-	PTB->PDDR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
-	PTB->PCOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
+    // Setting as output
+    PTB->PDDR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
+    PTB->PCOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
     
 		
-	NVIC_SetPriority(myPORTB_IRQn, 3);
+    NVIC_SetPriority(myPORTB_IRQn, 3);
 		
     NVIC_ClearPendingIRQ(PORTB_IRQn);
     NVIC_EnableIRQ(PORTB_IRQn);
