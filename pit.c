@@ -8,13 +8,14 @@ static const IRQn_Type myPIT_IRQn = PIT_IRQn;
 
 void PIT_IRQHandler()
 {
+	// Channel 0 is used to generate STEP pulse signal, since PWM isn't able to handle such low frequencies 
 	if (PIT->CHANNEL[0].TFLG & PIT_TFLG_TIF_MASK) {
 		PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 		PTB->PTOR |= (1 << STEPPER_ASC) | (1 << STEPPER_DEC);
 		
 	}
 	
-	
+	// Channel 1 is used to debounce keyboard
 	else if (PIT->CHANNEL[1].TFLG & PIT_TFLG_TIF_MASK) {
 		PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
 		if (!debounce_flag)
