@@ -47,12 +47,12 @@ void Klaw_Init(void)
 
 void PORTB_IRQHandler(void)
 {
-  //clear pending interrupts
-  NVIC_ClearPendingIRQ(myPORTB_IRQn);
+  	//clear pending interrupts
+  	NVIC_ClearPendingIRQ(myPORTB_IRQn);
 	
-  // Rewind in south
-  if((PORTB->ISFR & (1<<ROW1)))
-  {
+  	// Rewind in south
+  	if((PORTB->ISFR & (1<<ROW1)))
+  	{
 		if (debouncingFinished) 
 		{
 			PTB->PDOR |= (1<<COL1) | (1<<COL2) | (1<<COL3);
