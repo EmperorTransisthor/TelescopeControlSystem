@@ -115,14 +115,17 @@ void Step_Dec_Microstepping_2(void)
 void Step_Dec_DirChng(void)
 {
 	PTA->PTOR |= (1<<DIR_DEC); 
+	declinationAxisDirection ^= 1;
 }
 
 void Step_Dec_DirHigh(void)
 {
 	PTA->PDOR |= (1<<DIR_DEC); 
+	declinationAxisDirection = 1;
 }
 
 void Step_Dec_DirLow(void)
 {
 	PTA->PCOR |= (1<<DIR_DEC); 
+	declinationAxisDirection = 0;
 }
