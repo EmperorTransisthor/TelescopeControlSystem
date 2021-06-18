@@ -5,6 +5,8 @@ It performs very basic functions such as compensation of Earth rotation movement
 Documentation is written in Polish, but I will add english version soon.
 
 # Presentation
+
+[![System sterowania teleskopem](https://i.ytimg.com/vi_webp/6IrJ9MSKTkQ/maxresdefault.webp)](https://www.youtube.com/watch?v=6IrJ9MSKTkQ "System sterowania teleskopem")
 ![wideo]: https://youtu.be/6IrJ9MSKTkQ
 
 # Circuit scheme
