@@ -7,6 +7,10 @@ Documentation is written in Polish, but I will add english version soon.
 # Presentation
 
 [![System sterowania teleskopem](https://i.ytimg.com/vi_webp/6IrJ9MSKTkQ/maxresdefault.webp)](https://www.youtube.com/watch?v=6IrJ9MSKTkQ "System sterowania teleskopem")
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=6IrJ9MSKTkQ"><img src="https://i.ytimg.com/vi_webp/6IrJ9MSKTkQ/maxresdefault.webp" alt="System sterowania teleskopem"></a>
+</div>
 ![wideo]: https://youtu.be/6IrJ9MSKTkQ
 
 # Circuit scheme
